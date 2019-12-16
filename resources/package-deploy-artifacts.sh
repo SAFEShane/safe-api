@@ -111,7 +111,7 @@ function create_zip_archive() {
         "../../artifacts/$component/$type/$target/release/$distributable"
 }
 
-declare -a types=("prod")
+declare -a types=("dev" "prod")
 # declare -a types=("dev" "prod")
 for type in "${types[@]}"; do
     targets=($(ls -1 "artifacts/$component/$type"))
