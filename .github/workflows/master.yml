@@ -3,7 +3,7 @@ name: DevFFI
 on:
   push:
     branches:
-      - master
+      - dev-ffi-deploy
 
 jobs:
   build-cli-authd:
