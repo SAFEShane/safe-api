@@ -118,6 +118,9 @@ for type in "${types[@]}"; do
     for target in "${targets[@]}"
     do
         (
+            if [[ "$target" != *"safe-ffi"* ]] && [[ "$type" == "dev" ]]; then
+                continue
+            fi
             cd "deploy/$type"
             create_tar_archive "$component" "$target" "$type"
             create_zip_archive "$component" "$target" "$type"
