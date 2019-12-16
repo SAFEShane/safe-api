@@ -112,15 +112,11 @@ function create_zip_archive() {
 }
 
 declare -a types=("dev" "prod")
-# declare -a types=("dev" "prod")
 for type in "${types[@]}"; do
     targets=($(ls -1 "artifacts/$component/$type"))
     for target in "${targets[@]}"
     do
         (
-            if [[ "$target" != *"safe-ffi"* ]] && [[ "$type" == "dev" ]]; then
-                continue
-            fi
             cd "deploy/$type"
             create_tar_archive "$component" "$target" "$type"
             create_zip_archive "$component" "$target" "$type"
